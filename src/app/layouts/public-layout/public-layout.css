@@ -1,0 +1,7 @@
+/*
+ * Estilos de Tailwind + DaisyUI, aplicados SOLO al PublicLayout.
+ * Se carga con ViewEncapsulation.None para que aplique a los hijos del layout,
+ * pero no afecta al dashboard ni al auth porque están en rutas/layouts separados.
+ */
+@import "tailwindcss";
+@plugin "daisyui";

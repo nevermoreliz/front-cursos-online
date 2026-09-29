@@ -1,0 +1,10 @@
+/*
+ * Estilos del AdminLayout (dashboard).
+ * Los componentes de Angular Material ya tienen sus estilos
+ * cargados globalmente desde material-theme.scss.
+ * Aquí solo van estilos específicos del layout del dashboard.
+ */
+:host {
+  display: block;
+  height: 100%;
+}

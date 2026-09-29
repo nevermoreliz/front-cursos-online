@@ -1,0 +1,113 @@
+<div class="login-page-wrapper">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form-container">
+    <mat-card appearance="outlined" class="login-card">
+      <mat-card-content class="login-card-content">
+        
+        <!-- Panel Izquierdo: Branding / Estilo Académico -->
+        <div class="branding-section">
+          <div class="logo-container">
+            <mat-icon class="academic-icon">school</mat-icon>
+          </div>
+          <h1 class="branding-title">Bienvenido a la plataforma</h1>
+          <p class="branding-subtitle">Accede a tu entorno virtual de aprendizaje y continúa con tu formación profesional.</p>
+          
+          <div class="academic-features">
+            <div class="feature"><mat-icon>menu_book</mat-icon> Acceso a materiales 24/7</div>
+            <div class="feature"><mat-icon>workspace_premium</mat-icon> Certificaciones avaladas</div>
+            <div class="feature"><mat-icon>forum</mat-icon> Foros y tutorías</div>
+          </div>
+        </div>
+
+        <!-- Panel Derecho: Formulario de Login -->
+        <div class="form-section">
+          <!-- Solo visible en móviles cuando se oculta el panel izquierdo -->
+          <div class="form-header-mobile">
+            <mat-icon class="academic-icon-small" color="primary">school</mat-icon>
+            <h2>Iniciar sesión</h2>
+          </div>
+
+          <p class="form-instruction">Ingresa tus credenciales para acceder</p>
+
+          <!--
+            ═══════════════════════════════════════════════
+            MENSAJE DE ERROR
+            Se muestra SOLO cuando loginError() tiene un valor.
+            @if es la nueva sintaxis de Angular (reemplaza a *ngIf).
+            ═══════════════════════════════════════════════
+          -->
+          @if (loginError()) {
+            <div class="error-banner" role="alert">
+              <mat-icon>error_outline</mat-icon>
+              <span>{{ loginError() }}</span>
+            </div>
+          }
+
+          <!-- Email Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="ejemplo@institucion.edu" />
+            <mat-icon matPrefix>email</mat-icon>
+            @if (emailControl?.invalid && (emailControl?.dirty || emailControl?.touched)) {
+              @if (emailControl?.hasError('required')) {
+                <mat-error>El correo es obligatorio</mat-error>
+              }
+              @if (emailControl?.hasError('email')) {
+                <mat-error>Ingresa un correo válido</mat-error>
+              }
+            }
+          </mat-form-field>
+
+          <!-- Password Field -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hidePassword() ? 'password' : 'text'" formControlName="password" />
+            <mat-icon matPrefix>lock</mat-icon>
+            <button mat-icon-button matSuffix type="button" (click)="hidePassword.set(!hidePassword())" aria-label="Mostrar/ocultar contraseña">
+              <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            @if (passwordControl?.invalid && (passwordControl?.dirty || passwordControl?.touched)) {
+              @if (passwordControl?.hasError('required')) {
+                <mat-error>La contraseña es obligatoria</mat-error>
+              }
+              @if (passwordControl?.hasError('minlength')) {
+                <mat-error>Debe tener al menos 6 caracteres</mat-error>
+              }
+            }
+          </mat-form-field>
+
+          <!-- Recuperar contraseña -->
+          <div class="forgot-password-container">
+            <a routerLink="/auth/forgot-password" class="forgot-link">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          <!--
+            ═══════════════════════════════════════════════
+            BOTÓN SUBMIT CON LOADING
+            - [disabled] → Se desactiva si el formulario es inválido O si estamos cargando
+            - isLoading() → Cuando es true, mostramos un spinner en vez del texto
+            ═══════════════════════════════════════════════
+          -->
+          <div class="action-buttons">
+            <button
+              mat-flat-button
+              type="submit"
+              class="submit-btn"
+              [disabled]="loginForm.invalid || isLoading()">
+              @if (isLoading()) {
+                <mat-spinner diameter="24" class="btn-spinner"></mat-spinner>
+              } @else {
+                Ingresar al portal
+              }
+            </button>
+          </div>
+          
+          <!-- Registro -->
+          <div class="register-prompt">
+            ¿No estás matriculado? <a routerLink="/auth/register" class="register-link">Crear una cuenta</a>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

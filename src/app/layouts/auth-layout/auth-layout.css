@@ -1,0 +1,17 @@
+/*
+ * Auth Layout — Contenedor centrado con fondo oscuro
+ */
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background-color: var(--mat-sys-surface, #121212);
+}
