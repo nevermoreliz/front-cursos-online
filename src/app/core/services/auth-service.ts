@@ -168,6 +168,19 @@ export class AuthService {
     }
 
     /**
+     * Actualiza los datos del usuario en el estado de la app.
+     * Útil cuando se edita el perfil sin necesidad de re-autenticar.
+     *
+     * ¿Por qué un método público y no exponer el signal directamente?
+     *   → Porque queremos que SOLO el AuthService pueda modificar
+     *     el estado del usuario. Así mantenemos un único punto
+     *     de control (Single Source of Truth).
+     */
+    actualizarUsuario(usuario: UsuarioInterface): void {
+        this._currentUser.set(usuario);
+    }
+
+    /**
      * Obtiene el token JWT guardado en localStorage.
      * Lo usa el Interceptor para adjuntarlo a las peticiones HTTP.
      */

@@ -48,13 +48,21 @@ export const routes: Routes = [
   // ──────────────────────────────────────
   {
     path: 'dashboard',
-    component: AdminLayout,
+    // component: AdminLayout,
     canActivate: [authGuard],
-    children: [
-      // Aquí irán las rutas del dashboard
-      // Ejemplo:
-      // { path: '', loadComponent: () => import('./features/dashboard/home/home').then(m => m.DashboardHome) },
-    ],
+    loadChildren: () => import('./features/dashboard/dashboard.routes'),
+    // children: [
+    //   {
+    //     path: '',
+    //     loadComponent: () =>
+    //       import('./features/dashboard/dashboard').then((m) => m.Dashboard),
+    //   },
+    // ],
+  },
+  {
+    path: 'admin',
+    redirectTo: 'dashboard',
+    pathMatch: 'prefix',
   },
 ];
 

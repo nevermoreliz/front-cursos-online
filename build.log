@@ -1,0 +1,1099 @@
+❯ Building...
+/*! 🌼 daisyUI 5.7.46 */
+✔ Building...
+Application bundle generation failed. [2.824 seconds] - 2026-09-30T03:28:40.740Z
+
+✘ [ERROR] TS2339: Property 'sidenav' does not exist on type 'Navbar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/navbar/navbar.html:7:37:
+      7 │ ...ton mat-icon-button (click)="sidenav.toggle()" class="mobile-men...
+        ╵                                 ~~~~~~~
+
+  Error occurs in the template of component Navbar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/navbar/navbar.ts:12:15:
+      12 │   templateUrl: './navbar.html',
+         ╵                ~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-divider' is not a known element:
+1. If 'mat-divider' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-divider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/navbar/navbar.html:62:12:
+      62 │             <mat-divider></mat-divider>
+         ╵             ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Navbar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/navbar/navbar.ts:12:15:
+      12 │   templateUrl: './navbar.html',
+         ╵                ~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-divider' is not a known element:
+1. If 'mat-divider' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-divider' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/navbar/navbar.html:75:12:
+      75 │             <mat-divider></mat-divider>
+         ╵             ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Navbar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/navbar/navbar.ts:12:15:
+      12 │   templateUrl: './navbar.html',
+         ╵                ~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'app-sidebar' is not a known element:
+1. If 'app-sidebar' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-sidebar' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/admin-layout.html:11:4:
+      11 │     <app-sidebar />
+         ╵     ~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component AdminLayout.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/admin-layout.ts:32:15:
+      32 │   templateUrl: './admin-layout.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'isHandset$' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:1:53:
+      1 │ ...ass="admin-sidenav" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        ╵                                 ~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'isHandset$' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:2:16:
+      2 │     [opened]="!(isHandset$ | async)">
+        ╵                 ~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:18:53:
+      18 │ ...  <div class="nav-section-header" (click)="toggleSection('main')">
+         ╵                                               ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:20:70:
+      20 │ ...s="nav-section-toggle" [class.rotated]="expandedSections['main']">
+         ╵                                            ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:25:17:
+      25 │             @if (expandedSections['main']) {
+         ╵                  ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:36:38:
+      36 │                     [class.expanded]="expandedSections['courses']">
+         ╵                                       ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:35:66:
+      35 │ ...s="nav-item-expandable level-1" (click)="toggleSection('courses')"
+         ╵                                             ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:41:41:
+      41 │ ...       [class.rotated]="expandedSections['courses']">chevron_ri...
+         ╵                            ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:44:21:
+      44 │                 @if (expandedSections['courses']) {
+         ╵                      ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:63:42:
+      63 │ ...                [class.expanded]="expandedSections['categories']">
+         ╵                                      ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:62:33:
+      62 │ ...                (click)="toggleSection('categories'); $event.st...
+         ╵                             ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:67:45:
+      67 │ ...       [class.rotated]="expandedSections['categories']">chevron...
+         ╵                            ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:70:25:
+      70 │                     @if (expandedSections['categories']) {
+         ╵                          ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:96:38:
+      96 │                     [class.expanded]="expandedSections['users']">
+         ╵                                       ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:95:66:
+      95 │ ...ass="nav-item-expandable level-1" (click)="toggleSection('users')"
+         ╵                                               ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:99:68:
+      99 │ ...arrow" [class.rotated]="expandedSections['users']">chevron_righ...
+         ╵                            ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:102:21:
+      102 │                 @if (expandedSections['users']) {
+          ╵                      ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:112:42:
+      112 │ ...                    [class.expanded]="expandedSections['roles']">
+          ╵                                          ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:111:70:
+      111 │ ...ndable level-2" (click)="toggleSection('roles'); $event.stopPr...
+          ╵                             ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:116:45:
+      116 │ ...      [class.rotated]="expandedSections['roles']">chevron_righ...
+          ╵                           ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:119:25:
+      119 │                     @if (expandedSections['roles']) {
+          ╵                          ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:155:53:
+      155 │ ...ss="nav-section-header" (click)="toggleSection('communication')">
+          ╵                                     ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:157:70:
+      157 │ ...tion-toggle" [class.rotated]="expandedSections['communication']">
+          ╵                                  ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:162:17:
+      162 │             @if (expandedSections['communication']) {
+          ╵                  ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:190:53:
+      190 │ ...iv class="nav-section-header" (click)="toggleSection('content')">
+          ╵                                           ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:192:70:
+      192 │ ...av-section-toggle" [class.rotated]="expandedSections['content']">
+          ╵                                        ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:197:17:
+      197 │             @if (expandedSections['content']) {
+          ╵                  ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:202:38:
+      202 │ ...                [class.expanded]="expandedSections['resources']">
+          ╵                                      ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:201:66:
+      201 │ ...nav-item-expandable level-1" (click)="toggleSection('resources')"
+          ╵                                          ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:206:41:
+      206 │ ...      [class.rotated]="expandedSections['resources']">chevron_...
+          ╵                           ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:209:21:
+      209 │                 @if (expandedSections['resources']) {
+          ╵                      ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'toggleSection' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:248:53:
+      248 │ ...v class="nav-section-header" (click)="toggleSection('networks')">
+          ╵                                          ~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:250:70:
+      250 │ ...v-section-toggle" [class.rotated]="expandedSections['networks']">
+          ╵                                       ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'expandedSections' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:255:17:
+      255 │             @if (expandedSections['networks']) {
+          ╵                  ~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'currentUser' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:289:63:
+      289 │ ...vatars.com/api/?name=' + (currentUser()?.nombre_completo || 'U...
+          ╵                              ~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'currentUser' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:292:50:
+      292 │ ...ass="footer-user-name">{{ currentUser()?.nombre_completo || 'A...
+          ╵                              ~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'profileMenu' does not exist on type 'Sidebar'. [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:295:81:
+      295 │ ...button class="footer-more-btn" [matMenuTriggerFor]="profileMenu">
+          ╵                                                        ~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-sidenav' is not a known element:
+1. If 'mat-sidenav' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-sidenav' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:0:0:
+      0 │ 
+        ╵ ^
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'mode' since it isn't a known property of 'mat-sidenav'.
+1. If 'mat-sidenav' is an Angular component and it has 'mode' input, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-sidenav' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component. Find more at https://next.angular.dev/errors/NG8002 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:1:44:
+      1 │ ...ass="admin-sidenav" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        ╵                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'opened' since it isn't a known property of 'mat-sidenav'.
+1. If 'mat-sidenav' is an Angular component and it has 'opened' input, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-sidenav' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.
+3. To allow any property add 'NO_ERRORS_SCHEMA' to the '@Component.schemas' of this component. Find more at https://next.angular.dev/errors/NG8002 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:2:4:
+      2 │     [opened]="!(isHandset$ | async)">
+        ╵     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:6:8:
+      6 │         <mat-icon class="search-icon">search</mat-icon>
+        ╵         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-nav-list' is not a known element:
+1. If 'mat-nav-list' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-nav-list' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:13:8:
+      13 │         <mat-nav-list class="admin-nav-list">
+         ╵         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:20:16:
+      20 │ ...          <mat-icon class="nav-section-toggle" [class.rotated]=...
+         ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:30:20:
+      30 │                     <mat-icon matListItemIcon>dashboard</mat-icon>
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:37:20:
+      37 │                     <mat-icon class="nav-item-icon">school</mat-icon>
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:40:20:
+      40 │                     <mat-icon class="expand-arrow"
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:50:24:
+      50 │                         <mat-icon matListItemIcon>list_alt</mat-icon>
+         ╵                         ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:56:24:
+      56 │ ...                   <mat-icon matListItemIcon>add_circle_outline...
+         ╵                       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:64:24:
+      64 │ ...                <mat-icon class="nav-item-icon">category</mat-i...
+         ╵                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:66:24:
+      66 │                         <mat-icon class="expand-arrow"
+         ╵                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:97:20:
+      97 │                     <mat-icon class="nav-item-icon">people</mat-icon>
+         ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:99:20:
+      99 │ ...          <mat-icon class="expand-arrow" [class.rotated]="expan...
+         ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:106:24:
+      106 │                         <mat-icon matListItemIcon>group</mat-icon>
+          ╵                         ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:113:24:
+      113 │ ...               <mat-icon class="nav-item-icon">admin_panel_set...
+          ╵                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:115:24:
+      115 │                         <mat-icon class="expand-arrow"
+          ╵                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:142:24:
+      142 │ ...                  <mat-icon matListItemIcon>mail_outline</mat-...
+          ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:157:16:
+      157 │ ...          <mat-icon class="nav-section-toggle" [class.rotated]...
+          ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:167:20:
+      167 │                     <mat-icon matListItemIcon>chat_bubble_outline...
+          ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:174:20:
+      174 │                     <mat-icon matListItemIcon>notifications_activ...
+          ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:180:20:
+      180 │                     <mat-icon matListItemIcon>event</mat-icon>
+          ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:192:16:
+      192 │ ...          <mat-icon class="nav-section-toggle" [class.rotated]...
+          ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:203:20:
+      203 │ ...               <mat-icon class="nav-item-icon">folder_open</ma...
+          ╵                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:205:20:
+      205 │                     <mat-icon class="expand-arrow"
+          ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:213:24:
+      213 │ ...                  <mat-icon matListItemIcon>insert_drive_file<...
+          ╵                      ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:218:24:
+      218 │ ...                    <mat-icon matListItemIcon>videocam</mat-icon>
+          ╵                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:223:24:
+      223 │                         <mat-icon matListItemIcon>quiz</mat-icon>
+          ╵                         ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:231:20:
+      231 │                     <mat-icon matListItemIcon>bookmark_border</ma...
+          ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:238:20:
+      238 │                     <mat-icon matListItemIcon>insights</mat-icon>
+          ╵                     ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:250:16:
+      250 │ ...          <mat-icon class="nav-section-toggle" [class.rotated]...
+          ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:261:24:
+      261 │                         <mat-icon>code</mat-icon>
+          ╵                         ~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:268:24:
+      268 │                         <mat-icon>dns</mat-icon>
+          ╵                         ~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:275:24:
+      275 │                         <mat-icon>brush</mat-icon>
+          ╵                         ~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8002: Can't bind to 'matMenuTriggerFor' since it isn't a known property of 'button'. Find more at https://next.angular.dev/errors/NG8002 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:295:60:
+      295 │ ...button class="footer-more-btn" [matMenuTriggerFor]="profileMenu">
+          ╵                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] NG8001: 'mat-icon' is not a known element:
+1. If 'mat-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'mat-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message. Find more at https://next.angular.dev/errors/NG8001 [plugin angular-compiler]
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.html:296:16:
+      296 │                 <mat-icon>more_horiz</mat-icon>
+          ╵                 ~~~~~~~~~~
+
+  Error occurs in the template of component Sidebar.
+
+    /home/nevermore/Dev/Proyectos/curso-prueba/frontend-cursos/src/app/layouts/admin-layout/components/sidebar/sidebar.ts:8:15:
+      8 │   templateUrl: './sidebar.html',
+        ╵                ~~~~~~~~~~~~~~~~
+
+

@@ -12,3 +12,37 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+/* ══════════════════════════════════════════════════════════════
+ * PROFILE DROPDOWN (Global — mat-menu renders outside component)
+ * ══════════════════════════════════════════════════════════════ */
+.mat-mdc-menu-panel.profile-dropdown-compact {
+  min-width: 200px !important;
+  max-width: 260px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e2e8f0 !important;
+  overflow: hidden !important;
+  padding: 4px 0 !important;
+}
+
+.profile-dropdown-compact .mat-mdc-menu-content {
+  padding: 0 !important;
+}
+
+.profile-dropdown-compact .mat-mdc-menu-item {
+  border-radius: 6px;
+  margin: 2px 6px;
+  min-height: 36px !important;
+  height: 36px !important;
+  transition: background-color 150ms ease;
+}
+
+.profile-dropdown-compact .mat-mdc-menu-item:hover {
+  background-color: #f1f5f9;
+}
+
+.profile-dropdown-compact .mat-divider {
+  margin: 4px 12px !important;
+  border-color: #f1f5f9;
+}

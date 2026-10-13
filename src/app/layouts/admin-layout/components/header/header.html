@@ -1,0 +1,203 @@
+<header
+  class="sticky top-0 z-40 flex w-full bg-white shadow-sm dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+  <div class="flex flex-grow items-center justify-between px-4 py-2 md:px-6 md:py-2.5 2xl:px-11">
+
+    <div class="flex items-center gap-2 sm:gap-4">
+      <!-- Sidebar Collapse Toggle (Desktop) -->
+      <button (click)="layoutService.toggleCollapsed()"
+        class="hidden lg:flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-200 transition-colors">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- Hamburger Toggle Button -->
+      <button (click)="toggleSidebar()"
+        class="z-50 block rounded-md border border-gray-200 bg-white p-1 shadow-sm dark:border-gray-800 dark:bg-gray-900 lg:hidden focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-transform active:scale-95">
+        <span class="relative block h-5 w-5 cursor-pointer">
+          <span class="block absolute right-0 w-full h-full">
+            <span
+              class="relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white"
+              [ngClass]="{ '!w-full delay-300': !layoutService.isSidebarOpen() }"></span>
+            <span
+              class="relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white"
+              [ngClass]="{ '!w-full delay-400': !layoutService.isSidebarOpen() }"></span>
+            <span
+              class="relative top-0 left-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white"
+              [ngClass]="{ '!w-full delay-500': !layoutService.isSidebarOpen() }"></span>
+          </span>
+          <!-- Cross (when open) -->
+          <span class="absolute right-0 h-full w-full rotate-45">
+            <span
+              class="absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out dark:bg-white"
+              [ngClass]="{ '!h-0 !delay-[0]': !layoutService.isSidebarOpen() }"></span>
+            <span
+              class="delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-black duration-200 ease-in-out dark:bg-white"
+              [ngClass]="{ '!w-0 !delay-200': !layoutService.isSidebarOpen() }"></span>
+          </span>
+        </span>
+      </button>
+
+      <!-- Mobile Logo -->
+      <a class="block flex-shrink-0 lg:hidden text-xl font-bold text-indigo-600 dark:text-indigo-400" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Header Actions / Search -->
+    <div class="hidden sm:block w-full max-w-md">
+      <form action="https://formbold.com/s/unique_form_id" method="POST">
+        <div class="relative">
+          <button
+            class="absolute left-0 top-1/2 -translate-y-1/2 p-2 text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors">
+            <svg class="fill-current w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M10 2a8 8 0 1 0 5.29 14.71l5 5a1 1 0 0 0 1.42-1.42l-5-5A8 8 0 0 0 10 2zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12z" />
+            </svg>
+          </button>
+          <input type="text" placeholder="Buscar cursos, usuarios..."
+            class="w-full bg-transparent pl-8 pr-4 py-1.5 text-sm font-medium focus:outline-none xl:w-125 border-b-2 border-transparent focus:border-indigo-500 transition-colors dark:text-white placeholder-gray-400" />
+        </div>
+      </form>
+    </div>
+
+    <!-- User Area -->
+    <div class="flex items-center gap-2 2xsm:gap-4">
+      <ul class="flex items-center gap-1 2xsm:gap-2">
+
+        <!-- Dark Mode Toggle -->
+        <li>
+          <button
+            class="relative flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 hover:text-indigo-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 dark:hover:text-indigo-400 transition-all hover:bg-gray-50 dark:hover:bg-gray-800">
+            <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+
+        <!-- Notification Menu Area -->
+        <li class="relative">
+          <button
+            class="relative flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 hover:text-indigo-600 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 dark:hover:text-indigo-400 transition-all hover:bg-gray-50 dark:hover:bg-gray-800">
+            <span
+              class="absolute top-0 right-0 z-1 h-2 w-2 rounded-full bg-orange-500 ring-2 ring-white dark:ring-gray-900"></span>
+            <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </button>
+        </li>
+      </ul>
+
+      <!-- User Profile Area -->
+      <div class="relative ml-2 profile-dropdown-area">
+        <button (click)="toggleProfile()"
+          class="flex items-center gap-2 rounded-full py-1 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors pr-2 pl-1">
+          <img src="https://ui-avatars.com/api/?name=Musharof&background=1e293b&color=fff" alt="User"
+            class="h-8 w-8 rounded-full object-cover shadow-sm" />
+          <span class="hidden text-right lg:block text-sm font-medium text-gray-700 dark:text-gray-200">
+            {{currentUser()?.rol | titlecase}}
+          </span>
+          <svg class="hidden lg:block h-3.5 w-3.5 text-gray-500" [ngClass]="{'rotate-180': isProfileOpen()}"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div *ngIf="isProfileOpen()"
+          class="absolute right-0 mt-2.5 flex w-56 flex-col rounded-xl border border-gray-200 bg-white shadow-xl dark:border-gray-800 dark:bg-gray-900 z-50 overflow-hidden">
+          <div class="px-4 py-3">
+            <span class="block text-sm font-semibold text-gray-800 dark:text-white">{{currentUser()?.nombre_completo |
+              titlecase}}</span>
+            <span class="block text-xs text-gray-500 dark:text-gray-400">{{currentUser()?.email}}</span>
+          </div>
+
+          <div class="border-t border-gray-100 dark:border-gray-800"></div>
+
+          <ul class="flex flex-col gap-1 px-2 py-2">
+            <li>
+              <a routerLink="perfil" routerLinkActive="active" (click)="closeProfile()"
+                class="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-indigo-400 transition-colors">
+                <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                My perfil
+              </a>
+            </li>
+            <li>
+              <a href="#" (click)="closeProfile()"
+                class="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-indigo-400 transition-colors">
+                <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                  </path>
+                </svg>
+                Account settings
+              </a>
+            </li>
+            <li>
+              <a href="#" (click)="closeProfile()"
+                class="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-indigo-400 transition-colors">
+                <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Support
+              </a>
+            </li>
+            <li>
+              <div
+                class="flex items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+                <div class="flex items-center gap-2.5">
+                  <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
+                  </svg>
+                  Language
+                </div>
+                <div
+                  class="flex items-center gap-1.5 rounded border border-gray-200 bg-white px-1.5 py-0.5 text-[10px] uppercase font-bold dark:border-gray-700 dark:bg-gray-800">
+                  <span>EN</span>
+                  <img src="https://flagcdn.com/w20/us.png" alt="US" class="h-2.5 w-3.5 rounded-sm object-cover" />
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="border-t border-gray-100 dark:border-gray-800"></div>
+
+          <ul class="flex flex-col gap-1 px-2 py-2">
+            <li>
+              <a href="#" (click)="closeProfile()"
+                class="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-indigo-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-indigo-400 transition-colors">
+                <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Sign out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

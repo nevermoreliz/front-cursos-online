@@ -1,0 +1,94 @@
+<!-- Sidebar Backdrop (Mobile) -->
+<div *ngIf="layoutService.isSidebarOpen()" (click)="layoutService.toggleSidebar()"
+  class="fixed inset-0 z-40 bg-gray-900/50 backdrop-blur-sm lg:hidden transition-opacity"></div>
+
+<!-- Sidebar -->
+<aside
+  class="fixed inset-y-0 left-0 z-50 flex flex-col bg-white dark:bg-gray-900 shadow-xl lg:shadow-none border-r border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out lg:relative lg:h-screen lg:translate-x-0"
+  [ngClass]="{
+    'translate-x-0': layoutService.isSidebarOpen(),
+    '-translate-x-full': !layoutService.isSidebarOpen(),
+    'w-72': !layoutService.isCollapsed(),
+    'lg:w-20': layoutService.isCollapsed(),
+    'w-72 lg:w-72': !layoutService.isCollapsed()
+  }">
+  <!-- Sidebar Header -->
+  <div class="flex h-16 shrink-0 items-center px-6 border-b border-gray-100 dark:border-gray-800"
+    [ngClass]="layoutService.isCollapsed() ? 'lg:justify-center lg:px-0' : 'justify-between'">
+    <a routerLink="/" class="flex items-center gap-3"
+      [ngClass]="layoutService.isCollapsed() ? 'lg:justify-center' : ''">
+      <div
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+      </div>
+      <span
+        class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400"
+        [ngClass]="layoutService.isCollapsed() ? 'lg:hidden' : ''">
+        EduDash
+      </span>
+    </a>
+
+    <!-- Close button for mobile -->
+    <button (click)="layoutService.toggleSidebar()"
+      class="lg:hidden text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Sidebar Content -->
+  <div class="flex-1 overflow-y-auto py-6 no-scrollbar pb-24">
+    <nav class="space-y-8" [ngClass]="layoutService.isCollapsed() ? 'lg:px-2 px-4' : 'px-4'">
+
+      <!-- Main Menu Section -->
+      <div>
+        <h3 class="mb-4 ml-4 text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500"
+          [ngClass]="layoutService.isCollapsed() ? 'lg:hidden' : ''">
+          General
+        </h3>
+        <ul class="space-y-1">
+          <li *ngFor="let item of menuItems">
+            <a [routerLink]="item.link"
+              routerLinkActive="bg-indigo-50/80 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-300 font-semibold before:absolute before:inset-y-0 before:left-0 before:w-1 before:rounded-r-full before:bg-indigo-600 dark:before:bg-indigo-400"
+              class="relative flex items-center gap-3 rounded-lg px-4 py-3 text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800/50 dark:hover:text-white transition-all group overflow-hidden"
+              [ngClass]="layoutService.isCollapsed() ? 'lg:justify-center lg:px-0 lg:py-3' : ''"
+              [title]="layoutService.isCollapsed() ? item.title : ''">
+              <div
+                class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg transition-colors group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.icon"></path>
+                </svg>
+              </div>
+              <span class="truncate" [ngClass]="layoutService.isCollapsed() ? 'lg:hidden' : ''">{{ item.title }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+  </div>
+
+  <!-- User Quick Info at Bottom -->
+  <div
+    class="absolute bottom-0 left-0 w-full shrink-0 border-t border-gray-100 bg-white dark:border-gray-800 dark:bg-gray-900 z-10"
+    [ngClass]="layoutService.isCollapsed() ? 'lg:p-2' : 'p-4'">
+    <div class="flex items-center gap-3 rounded-xl bg-gray-50 dark:bg-gray-800"
+      [ngClass]="layoutService.isCollapsed() ? 'lg:justify-center lg:p-2 p-3' : 'p-3'">
+      <div class="relative h-10 w-10 shrink-0 rounded-full border-2 border-indigo-100 dark:border-indigo-900">
+        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="User"
+          class="rounded-full" />
+        <span
+          class="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-green-500 border-2 border-white dark:border-gray-800"></span>
+      </div>
+      <div class="flex-1 min-w-0" [ngClass]="layoutService.isCollapsed() ? 'lg:hidden' : ''">
+        <p class="truncate text-sm font-semibold text-gray-900 dark:text-white">{{currentUser()?.nombre_completo |
+          titlecase}}</p>
+        <p class="truncate text-xs text-gray-500 dark:text-gray-400">{{currentUser()?.email}}</p>
+      </div>
+    </div>
+  </div>
+</aside>
