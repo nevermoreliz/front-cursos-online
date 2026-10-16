@@ -2,6 +2,7 @@ import { Directive, ElementRef, inject, Input, OnDestroy, OnInit } from '@angula
 import { ModalService } from '../services/modal-service';
 
 
+
 /**
  * Directiva que registra automáticamente un <dialog> en el ModalService.
  *
@@ -25,6 +26,9 @@ export class ModalDirective implements OnInit, OnDestroy {
   private elementRef = inject(ElementRef<HTMLDialogElement>);
 
   ngOnInit(): void {
+    // Aseguramos que el modal use la tipografía del Admin Layout (Outfit)
+    this.elementRef.nativeElement.classList.add('font-sans');
+
     // Movemos el modal al body para que no quede atrapado por el z-index de otros contenedores (como el sidebar/header)
     document.body.appendChild(this.elementRef.nativeElement);
     this.modalService.registrar(this.appModal, this.elementRef.nativeElement);

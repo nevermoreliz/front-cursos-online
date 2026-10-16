@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { Sidebar } from './components/sidebar/sidebar';
 import { Header } from './components/header/header';
 import { LayoutService } from './layout.service';
+import { ConfirmDialog } from './shared/components/confirm-dialog/confirm-dialog';
+import { Alert } from './shared/components/alert/alert';
 
 /**
  * Contenedor del layout de gestión de cursos.
@@ -12,7 +14,7 @@ import { LayoutService } from './layout.service';
 @Component({
   selector: 'app-admin-layout',
   standalone: true,
-  imports: [RouterModule, CommonModule, Sidebar, Header],
+  imports: [RouterModule, CommonModule, Sidebar, Header, ConfirmDialog, Alert],
   templateUrl: './admin-layout.html',
   styleUrl: './admin-layout.css',
   encapsulation: ViewEncapsulation.None,

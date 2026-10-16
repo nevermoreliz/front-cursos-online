@@ -1,0 +1,43 @@
+@if(confirmService.options(); as opts) {
+<div class="font-sans fixed inset-0 z-[100000] flex items-center justify-center p-4">
+    <!-- Backdrop oscuro con blur -->
+    <div class="fixed inset-0 bg-gray-950/60 backdrop-blur-sm transition-opacity" (click)="responder(false)"></div>
+
+    <!-- Modal Box con Tailwind puro -->
+    <div class="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl transition-all dark:bg-gray-900 border border-gray-100 dark:border-gray-800">
+        
+        <div class="flex items-start gap-4">
+            <!-- Icono con color dinámico -->
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full" [ngClass]="iconBgClass">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+            
+            <!-- Contenido de texto -->
+            <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+                    {{ opts.title }}
+                </h3>
+                <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                    {{ opts.text }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+            <button type="button" (click)="responder(false)"
+                class="inline-flex justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700/50 transition-colors">
+                {{ opts.cancelButtonText }}
+            </button>
+            <button type="button" (click)="responder(true)"
+                class="inline-flex justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                [ngClass]="btnClass">
+                {{ opts.confirmButtonText }}
+            </button>
+        </div>
+    </div>
+</div>
+}

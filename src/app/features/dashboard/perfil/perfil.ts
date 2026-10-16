@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../core/services/auth-service';
 import { FormPerfil } from './form-perfil/form-perfil';
-import { ModalService } from '../../../shared/services/modal-service';
+import { ModalService } from '../../../layouts/admin-layout/shared/services/modal-service';
 
 @Component({
   selector: 'app-perfil',

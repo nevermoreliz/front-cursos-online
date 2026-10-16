@@ -1,0 +1,42 @@
+<!-- Toast container: fijo en la esquina superior derecha con z-index alto sobre modales y diálogos -->
+<div class="fixed top-5 right-5 z-[100001] flex flex-col gap-3 pointer-events-none w-full max-w-sm sm:max-w-md px-4 sm:px-0 font-sans">
+  @for (alerta of alertService.alertas(); track alerta.id) {
+  <div
+    class="pointer-events-auto relative overflow-hidden rounded-2xl border bg-white/95 dark:bg-gray-900/95 backdrop-blur-md p-4 shadow-xl transition-all duration-300 alert-enter"
+    [ngClass]="getCardClasses(alerta.tipo)">
+    
+    <div class="flex items-start gap-3.5">
+      <!-- Ícono según tipo con Angular Material y Tailwind -->
+      <div
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors"
+        [ngClass]="getIconBgClasses(alerta.tipo)">
+        <mat-icon class="!w-5 !h-5 !text-[20px] leading-none flex items-center justify-center">
+          {{ getIconName(alerta.tipo) }}
+        </mat-icon>
+      </div>
+
+      <!-- Contenido del mensaje -->
+      <div class="flex-1 min-w-0 pt-0.5">
+        <p class="text-xs font-bold uppercase tracking-wider mb-0.5" [ngClass]="getTitleClasses(alerta.tipo)">
+          {{ getTitleText(alerta.tipo) }}
+        </p>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-200 leading-snug break-words">
+          {{ alerta.mensaje }}
+        </p>
+      </div>
+
+      <!-- Botón cerrar con Angular Material (mat-icon-button) -->
+      <button
+        mat-icon-button
+        (click)="alertService.cerrar(alerta.id)"
+        aria-label="Cerrar notificación"
+        class="close-btn !w-7 !h-7 !min-w-7 !min-h-7 -mr-1 -mt-1 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center justify-center rounded-lg">
+        <mat-icon class="!w-4 !h-4 !text-[18px] leading-none flex items-center justify-center">close</mat-icon>
+      </button>
+    </div>
+
+    <!-- Barra de progreso de auto-cierre con Tailwind -->
+    <span class="alert-progress" [ngClass]="getProgressColor(alerta.tipo)"></span>
+  </div>
+  }
+</div>
