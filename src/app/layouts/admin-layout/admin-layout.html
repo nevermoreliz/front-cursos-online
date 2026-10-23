@@ -3,20 +3,31 @@
   
   <!-- ===== Sidebar Start ===== -->
   <app-sidebar 
-    class="block h-screen lg:shrink-0 transition-all duration-300"
-    [ngClass]="layoutService.isCollapsed() ? 'lg:w-20' : 'lg:w-72'"
+    class="block h-screen lg:shrink-0 transition-all duration-300 relative z-30"
+    [ngClass]="layoutService.isCollapsed() ? 'w-0 lg:w-20' : 'w-0 lg:w-72'"
   ></app-sidebar>
   <!-- ===== Sidebar End ===== -->
 
   <!-- ===== Content Area Start ===== -->
-  <div class="relative flex flex-1 flex-col overflow-hidden bg-gray-50/50 dark:bg-gray-900/50">
+  <div class="relative flex flex-1 flex-col overflow-hidden bg-gray-50/50 dark:bg-gray-900/50 min-w-0">
     
     <!-- ===== Header Start ===== -->
     <app-header></app-header>
     <!-- ===== Header End ===== -->
 
     <!-- ===== Main Content Start ===== -->
-    <main class="flex-1 overflow-y-auto overflow-x-hidden">
+    <main class="relative flex-1 overflow-y-auto overflow-x-hidden">
+      <!-- Overlay de carga con Angular Material Spinner -->
+      @if (loadingService.isLoading()) {
+      <div
+        class="absolute inset-0 z-30 flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm dark:bg-gray-950/70 transition-all duration-200">
+        <mat-spinner diameter="44" strokeWidth="4"></mat-spinner>
+        <span class="mt-3 text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">
+          Cargando contenido...
+        </span>
+      </div>
+      }
+
       <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10 min-h-full relative">
         
         <!-- Decoration background glow (optional modern touch) -->

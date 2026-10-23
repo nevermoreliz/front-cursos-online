@@ -1,25 +1,183 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule, NavigationEnd } from '@angular/router';
+import { filter, Subscription } from 'rxjs';
+
 import { LayoutService } from '../../layout.service';
 import { AuthService } from '../../../../core/services/auth-service';
+import { MenuItem } from '../../../../core/interfaces/menu.interface';
+import { MenuService } from '../../../../core/services/menu-service';
 
+// ──────────────────────────────────────────────────────────────
+// Sidebar: Componente de presentación del menú lateral.
+//
+// Responsabilidades:
+//   • Renderizar los ítems del menú (headings, links, submenús)
+//   • Gestionar el estado de expansión de submenús
+//   • Marcar el ítem activo según la ruta actual
+//   • Reaccionar a cambios de navegación y de usuario
+//
+// NO es responsable de:
+//   • Definir qué ítems existen (eso lo hace MenuService)
+//   • Filtrar por roles (eso lo hace MenuService)
+// ──────────────────────────────────────────────────────────────
 @Component({
   selector: 'app-sidebar',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './sidebar.html',
 })
-export class Sidebar {
-  layoutService = inject(LayoutService);
-  authService = inject(AuthService)
+export class Sidebar implements OnInit, OnDestroy {
 
+  // ─── Servicios inyectados ───
+  layoutService = inject(LayoutService);
+  private authService = inject(AuthService);
+  private menuService = inject(MenuService);
+  private router = inject(Router);
+
+  // ─── Estado ───
   currentUser = this.authService.currentUser;
 
-  menuItems = [
-    { title: 'Dashboard', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', link: '/dashboard' },
-    { title: 'Cursos', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253', link: '/admin/cursos' },
-    { title: 'Usuarios', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z', link: '/admin/usuarios' },
-    { title: 'Configuración', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z', link: '/admin/config' }
-  ];
+  /** Estado de hover cuando el sidebar está colapsado en desktop */
+  isHovered = signal(false);
+
+  /**
+   * Indica si visualmente se debe renderizar en modo colapsado (solo iconos).
+   * Solo es true si el sidebar está colapsado Y el usuario no tiene el cursor encima (hover).
+   * Al pasar el cursor, se expande completo temporalmente.
+   */
+  isVisualmenteColapsado = computed(() => {
+    return this.layoutService.isCollapsed() && !this.isHovered();
+  });
+
+  /**
+   * Menú calculado reactivamente a partir del rol del usuario.
+   * Se recalcula automáticamente cuando cambia el usuario (login/logout).
+   */
+  menuItems = computed(() => {
+    const user = this.currentUser();
+    const items = this.menuService.obtenerMenu(user?.rol);
+    // Marcar activos según la ruta actual
+    this.marcarActivos(items, this.router.url);
+    return items;
+  });
+
+  private routerSub!: Subscription;
+
+  ngOnInit(): void {
+    // Escuchar cambios de ruta para actualizar el estado activo y resetear hover
+    this.routerSub = this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.marcarActivos(this.menuItems(), this.router.url);
+        this.isHovered.set(false);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.routerSub?.unsubscribe();
+  }
+
+  // ════════════════════════════════════════════════════════════
+  //  MÉTODOS PÚBLICOS (usados desde el template)
+  // ════════════════════════════════════════════════════════════
+
+  onMouseEnter(): void {
+    if (this.layoutService.isCollapsed()) {
+      this.isHovered.set(true);
+    }
+  }
+
+  onMouseLeave(): void {
+    if (this.layoutService.isCollapsed()) {
+      this.isHovered.set(false);
+    }
+  }
+
+  /**
+   * Alterna la expansión de un submenú.
+   * Si el sidebar estaba en modo mini, se expande al interactuar.
+   */
+  toggleSubmenu(item: MenuItem): void {
+    if (!item.submenu) return;
+    if (this.layoutService.isCollapsed() && !this.isHovered()) {
+      this.isHovered.set(true);
+      item.expanded = true;
+      return;
+    }
+    item.expanded = !item.expanded;
+  }
+
+  /**
+   * Determina si un svgIcon es un path simple (no un SVG completo).
+   * Usado en el template para decidir qué tipo de icono renderizar.
+   */
+  esPathSimple(svgIcon: string | undefined): boolean {
+    if (!svgIcon) return false;
+    return !this.menuService.esSvgCompleto(svgIcon);
+  }
+
+  /**
+   * TrackBy para ngFor — mejora el rendimiento evitando
+   * re-renderizar ítems que no cambiaron.
+   */
+  trackByTitle(_index: number, item: MenuItem): string {
+    return item.title;
+  }
+
+  /**
+   * Verifica si un ítem o alguno de sus hijos está activo
+   * (su ruta coincide con la URL actual).
+   */
+  esItemActivo(item: MenuItem): boolean {
+    if (item.route) {
+      if (item.route === '/dashboard' || item.route === '/admin/home') {
+        return this.router.url === item.route;
+      }
+      return this.router.url.startsWith(item.route);
+    }
+    if (item.submenu) {
+      return item.submenu.some(sub => this.esItemActivo(sub));
+    }
+    return false;
+  }
+
+  // ════════════════════════════════════════════════════════════
+  //  MÉTODOS PRIVADOS
+  // ════════════════════════════════════════════════════════════
+
+  /**
+   * Recursivamente marca ítems activos y expande submenús padres.
+   * Retorna true si algún hijo está activo (para expandir el padre).
+   */
+  private marcarActivos(items: MenuItem[], urlActual: string): boolean {
+    let algunoActivo = false;
+
+    items.forEach(item => {
+      // ¿Este ítem tiene la ruta activa?
+      if (item.route) {
+        if (item.route === '/dashboard' || item.route === '/admin/home') {
+          item.active = urlActual === item.route;
+        } else {
+          item.active = urlActual.startsWith(item.route);
+        }
+      } else {
+        item.active = false;
+      }
+
+      // ¿Algún hijo está activo?
+      if (item.submenu) {
+        const hijoActivo = this.marcarActivos(item.submenu, urlActual);
+        if (hijoActivo) {
+          item.expanded = true; // Auto-expandir si un hijo está activo
+          item.active = true;
+        }
+      }
+
+      if (item.active) algunoActivo = true;
+    });
+
+    return algunoActivo;
+  }
 }
+

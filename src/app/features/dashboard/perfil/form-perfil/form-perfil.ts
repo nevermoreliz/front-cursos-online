@@ -1,4 +1,4 @@
-import { Component, effect, inject, output } from '@angular/core';
+import { Component, effect, inject, output, signal } from '@angular/core';
 import { ModalDirective } from '../../../../layouts/admin-layout/shared/directives/modal-directive';
 import { ModalService } from '../../../../layouts/admin-layout/shared/services/modal-service';
 import { UsuarioInterface } from '../../../../core/interfaces/usuario.interface';
@@ -8,11 +8,16 @@ import { PerfilService } from '../../../../core/services/perfil-service';
 import { IApiResponse } from '../../../../core/interfaces/api.interface';
 import { ConfirmService } from '../../../../layouts/admin-layout/shared/services/confirm-service';
 import { AlertService } from '../../../../layouts/admin-layout/shared/services/alert-service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-  imports: [ModalDirective, ReactiveFormsModule],
+  imports: [ModalDirective, ReactiveFormsModule, MatProgressSpinnerModule],
   selector: 'form-perfil',
-  styles: ``,
+  styles: `
+    :host ::ng-deep .btn-spinner circle {
+      stroke: #ffffff !important;
+    }
+  `,
   templateUrl: './form-perfil.html',
 })
 export class FormPerfil {
@@ -27,6 +32,9 @@ export class FormPerfil {
   alertService = inject(AlertService);
 
   currentUser = this.authService.currentUser;
+
+  /** Estado de carga mientras se guardan los cambios */
+  isSaving = signal(false);
 
   /** formulario Usuario -> para perfil */
   form: FormGroup = this.fb.group({
@@ -75,8 +83,11 @@ export class FormPerfil {
 
     if (!confirmado) return;
 
+    this.isSaving.set(true);
+
     this.perfilService.actualizarPerfil(id, body).subscribe({
       next: (respuesta: IApiResponse<UsuarioInterface>) => {
+        this.isSaving.set(false);
 
         console.log('Respuesta del backend:', respuesta);
 
@@ -97,6 +108,7 @@ export class FormPerfil {
         this.cerrar();
       },
       error: (error) => {
+        this.isSaving.set(false);
         console.error(error);
         this.alertService.error(error?.error?.message || 'Error al actualizar el perfil.');
       }
