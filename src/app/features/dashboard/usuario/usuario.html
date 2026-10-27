@@ -1,0 +1,315 @@
+<!-- ═══════════════════════════════════════════════════════════
+     PLANTILLA BASE — Página de contenido del Dashboard
+     ───────────────────────────────────────────────────────────
+     Bloques incluidos (copiar/pegar los que necesites):
+       1. Breadcrumb
+       2. Header con acciones
+       3. Filtros / Barra de búsqueda
+       4. Tabla de datos
+       5. Card de información (estilo perfil)
+       6. Grid de tarjetas métricas
+       7. Estado vacío
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- ┌──────────────────────────────────────────────────────────┐
+     │  1. BREADCRUMB                                          │
+     │     Cambia el título y los links según la sección.      │
+     └──────────────────────────────────────────────────────────┘ -->
+<div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Gestión de Usuarios</h2>
+    <nav>
+        <ol class="flex items-center gap-2 text-sm">
+            <li>
+                <a class="font-medium text-gray-500 hover:text-indigo-500 dark:text-gray-400"
+                    href="/dashboard">Dashboard /</a>
+            </li>
+            <li class="font-medium text-indigo-500">Usuarios</li>
+        </ol>
+    </nav>
+</div>
+
+<!-- ┌──────────────────────────────────────────────────────────┐
+     │  2. CONTENEDOR PRINCIPAL                                │
+     │     Envuelve todo el contenido con spacing vertical.    │
+     └──────────────────────────────────────────────────────────┘ -->
+<div class="space-y-5">
+
+    <!-- ╔══════════════════════════════════════════════════════╗
+         ║  BLOQUE: Header con acciones                        ║
+         ║  Útil para título de sección + botón de acción.     ║
+         ╚══════════════════════════════════════════════════════╝ -->
+    <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-gray-900 shadow-sm">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 dark:text-white">Listado de Usuarios</h3>
+                <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-400">
+                    Administra los usuarios registrados en la plataforma.
+                </p>
+            </div>
+            <button (click)="abrirModal()"
+                class="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                Nuevo Usuario
+            </button>
+        </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════════════════════╗
+         ║  BLOQUE: Filtros / Barra de búsqueda                ║
+         ║  Barra con input de búsqueda y filtros opcionales.  ║
+         ╚══════════════════════════════════════════════════════╝ -->
+    <div class="rounded-2xl border border-gray-200 bg-white p-4 lg:p-5 dark:border-gray-800 dark:bg-gray-900 shadow-sm">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <!-- Búsqueda -->
+            <div class="relative w-full sm:max-w-xs">
+                <svg class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input type="text" placeholder="Buscar usuario..."
+                    class="h-9 w-full rounded-lg border border-gray-300 bg-transparent pl-9 pr-4 text-sm text-gray-700 placeholder-gray-400 outline-none transition-colors focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-500 dark:focus:border-indigo-500" />
+            </div>
+            <!-- Filtros -->
+            <div class="flex items-center gap-2">
+                <select
+                    class="h-9 rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-700 outline-none transition-colors focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+                    <option value="">Todos los roles</option>
+                    <option value="SUPERADMIN">Superadmin</option>
+                    <option value="ADMIN">Admin</option>
+                    <option value="OPERADOR">Operador</option>
+                </select>
+                <select
+                    class="h-9 rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-700 outline-none transition-colors focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+                    <option value="">Estado</option>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════════════════════╗
+         ║  BLOQUE: Tabla de datos                             ║
+         ║  Tabla responsive con hover y dark mode.            ║
+         ╚══════════════════════════════════════════════════════╝ -->
+    <div
+        class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+                <thead>
+                    <tr class="border-b border-gray-100 dark:border-gray-800">
+                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400">Usuario</th>
+                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400">Email</th>
+                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400">Rol</th>
+                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400">Estado</th>
+                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400 text-right">Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                    <!-- Fila de ejemplo (repetir con *ngFor) -->
+                    <tr class="transition-colors hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                        <td class="px-5 py-3.5">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-indigo-100 dark:border-indigo-900/50">
+                                    <img src="https://ui-avatars.com/api/?name=Juan+Perez&background=4f46e5&color=fff&size=72"
+                                        class="h-full w-full object-cover" alt="avatar" />
+                                </div>
+                                <span class="font-medium text-gray-800 dark:text-white">Juan Pérez</span>
+                            </div>
+                        </td>
+                        <td class="px-5 py-3.5 text-gray-600 dark:text-gray-300">juan&#64;email.com</td>
+                        <td class="px-5 py-3.5">
+                            <span
+                                class="inline-flex items-center rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
+                                Admin
+                            </span>
+                        </td>
+                        <td class="px-5 py-3.5">
+                            <span
+                                class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
+                                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                                Activo
+                            </span>
+                        </td>
+                        <td class="px-5 py-3.5 text-right">
+                            <div class="flex items-center justify-end gap-1">
+                                <!-- Botón editar -->
+                                <button
+                                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400">
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                    </svg>
+                                </button>
+                                <!-- Botón eliminar -->
+                                <button
+                                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-red-50 hover:text-red-600 dark:text-gray-400 dark:hover:bg-red-900/20 dark:hover:text-red-400">
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paginación -->
+        <div
+            class="flex flex-col items-center justify-between gap-3 border-t border-gray-100 px-5 py-3.5 sm:flex-row dark:border-gray-800">
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                Mostrando <span class="font-medium text-gray-800 dark:text-white">1</span> a
+                <span class="font-medium text-gray-800 dark:text-white">10</span> de
+                <span class="font-medium text-gray-800 dark:text-white">50</span> resultados
+            </p>
+            <div class="flex items-center gap-1">
+                <button
+                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-300 text-sm text-gray-500 transition-colors hover:bg-gray-50 disabled:opacity-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button
+                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-sm font-medium text-white">1</button>
+                <button
+                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-300 text-sm text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800">2</button>
+                <button
+                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-300 text-sm text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800">3</button>
+                <button
+                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-300 text-sm text-gray-500 transition-colors hover:bg-gray-50 disabled:opacity-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════════════════════╗
+         ║  BLOQUE: Card de información (estilo perfil)        ║
+         ║  Para secciones con datos tipo clave-valor.         ║
+         ╚══════════════════════════════════════════════════════╝ -->
+    <!--
+    <div class="rounded-2xl border border-gray-200 bg-white p-5 lg:p-6 dark:border-gray-800 dark:bg-gray-900 shadow-sm">
+        <h4 class="mb-4 text-base font-bold text-gray-800 dark:text-white">Título de Sección</h4>
+        <div class="divide-y divide-gray-100 dark:divide-gray-800">
+            <div class="flex flex-col justify-between gap-3 py-3.5 first:pt-0 last:pb-0 sm:flex-row sm:items-center">
+                <div>
+                    <span class="block text-sm font-semibold text-gray-800 dark:text-white">Etiqueta</span>
+                    <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
+                        Descripción breve del campo o acción.
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <button
+                        class="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-900">
+                        Acción
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <!-- ╔══════════════════════════════════════════════════════╗
+         ║  BLOQUE: Grid de tarjetas métricas                  ║
+         ║  Pequeñas tarjetas con íconos + estadísticas.       ║
+         ╚══════════════════════════════════════════════════════╝ -->
+    <!--
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900 shadow-sm">
+            <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 dark:bg-indigo-500/10">
+                    <svg class="h-5 w-5 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-gray-800 dark:text-white">128</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Total Usuarios</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900 shadow-sm">
+            <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-50 dark:bg-emerald-500/10">
+                    <svg class="h-5 w-5 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-gray-800 dark:text-white">112</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Activos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900 shadow-sm">
+            <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-500/10">
+                    <svg class="h-5 w-5 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-gray-800 dark:text-white">12</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Pendientes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900 shadow-sm">
+            <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-red-50 dark:bg-red-500/10">
+                    <svg class="h-5 w-5 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-gray-800 dark:text-white">4</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Inactivos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <!-- ╔══════════════════════════════════════════════════════╗
+         ║  BLOQUE: Estado vacío                               ║
+         ║  Mostrar cuando no hay datos (usar con @if / *ngIf) ║
+         ╚══════════════════════════════════════════════════════╝ -->
+    <!--
+    <div class="rounded-2xl border border-gray-200 bg-white p-10 text-center dark:border-gray-800 dark:bg-gray-900 shadow-sm">
+        <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800">
+            <svg class="h-8 w-8 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+            </svg>
+        </div>
+        <h4 class="text-base font-bold text-gray-800 dark:text-white">Sin resultados</h4>
+        <p class="mx-auto mt-1 max-w-sm text-sm text-gray-500 dark:text-gray-400">
+            No se encontraron registros. Intenta ajustar los filtros o agrega un nuevo elemento.
+        </p>
+        <button
+            class="mt-4 inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            Agregar nuevo
+        </button>
+    </div>
+    -->
+
+</div>
+
+<app-form-usuario [usuario]="usuarioSeleccionado()" />
