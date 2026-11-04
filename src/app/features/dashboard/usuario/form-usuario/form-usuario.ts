@@ -7,9 +7,17 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { ModalDirective } from '../../../../layouts/admin-layout/shared/directives/modal-directive';
 import { UsuarioInterface } from '../../../../core/interfaces/usuario.interface';
 import { UsuarioService } from '../../../../core/services/usuario-service';
+import { FormError } from '../../../../shared/components/form-error/form-error';
+import { InputErrorDirective } from '../../../../shared/directives/input-error.directive';
 
 @Component({
-  imports: [ReactiveFormsModule, MatProgressSpinner, ModalDirective],
+  imports: [
+    ReactiveFormsModule,
+    MatProgressSpinner,
+    ModalDirective,
+    FormError,
+    InputErrorDirective,
+  ],
   selector: 'app-form-usuario',
   styles: ``,
   templateUrl: './form-usuario.html',
@@ -37,9 +45,9 @@ export class FormUsuario {
 
   /** formulario Usuario */
   form: FormGroup = this.fb.group({
-    nombre_completo: ['', Validators.required],
+    nombre_completo: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(6)]],
     rol: ['', Validators.required],
   })
 
@@ -55,11 +63,17 @@ export class FormUsuario {
         // patchValue() busca las cajas del formulario que se llamen igual 
         // que las propiedades del objeto (nombre_completo, email, rol) y las rellena solas.
         this.form.patchValue(usuarioEditar);
+        // En modo edición la contraseña no es obligatoria
+        this.form.get('password')?.clearValidators();
+        this.form.get('password')?.updateValueAndValidity();
       }
       // 4. ¿El padre nos mandó null? (Modo Crear nuevo)
       else {
         // reset() borra todo lo que estaba escrito y deja las cajas en blanco.
         this.form.reset();
+        // En modo creación la contraseña sí es obligatoria
+        this.form.get('password')?.setValidators([Validators.required, Validators.minLength(6)]);
+        this.form.get('password')?.updateValueAndValidity();
       }
 
     })

@@ -62,32 +62,33 @@
          ╚══════════════════════════════════════════════════════╝ -->
     <div class="rounded-2xl border border-gray-200 bg-white p-4 lg:p-5 dark:border-gray-800 dark:bg-gray-900 shadow-sm">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <!-- Búsqueda -->
-            <div class="relative w-full sm:max-w-xs">
-                <svg class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input type="text" placeholder="Buscar usuario..."
-                    class="h-9 w-full rounded-lg border border-gray-300 bg-transparent pl-9 pr-4 text-sm text-gray-700 placeholder-gray-400 outline-none transition-colors focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-500 dark:focus:border-indigo-500" />
-            </div>
-            <!-- Filtros -->
+
+            <!-- Búsqueda con Angular Material -->
+            <mat-form-field appearance="outline" class="w-full sm:max-w-xs">
+                <mat-icon matPrefix class="!text-gray-400 dark:!text-gray-500">search</mat-icon>
+                <input matInput placeholder="Buscar usuario..." (input)="paginacion.onSearchInput($any($event.target).value)">
+            </mat-form-field>
+
+            <!-- Filtros con Angular Material -->
             <div class="flex items-center gap-2">
-                <select
-                    class="h-9 rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-700 outline-none transition-colors focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
-                    <option value="">Todos los roles</option>
-                    <option value="SUPERADMIN">Superadmin</option>
-                    <option value="ADMIN">Admin</option>
-                    <option value="OPERADOR">Operador</option>
-                </select>
-                <select
-                    class="h-9 rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-700 outline-none transition-colors focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
-                    <option value="">Estado</option>
-                    <option value="activo">Activo</option>
-                    <option value="inactivo">Inactivo</option>
-                </select>
+                <mat-form-field appearance="outline" class="w-40">
+                    <mat-select placeholder="Todos los roles">
+                        <mat-option value="">Todos los roles</mat-option>
+                        <mat-option value="SUPERADMIN">Superadmin</mat-option>
+                        <mat-option value="ADMIN">Admin</mat-option>
+                        <mat-option value="OPERADOR">Operador</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="w-36">
+                    <mat-select placeholder="Estado">
+                        <mat-option value="">Estado</mat-option>
+                        <mat-option value="activo">Activo</mat-option>
+                        <mat-option value="inactivo">Inactivo</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
+
         </div>
     </div>
 
@@ -97,99 +98,138 @@
          ╚══════════════════════════════════════════════════════╝ -->
     <div
         class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 shadow-sm overflow-hidden">
+
+        <!-- Spinner de carga -->
+        @if (usuariosResource.isLoading()) {
+        <div
+            class="absolute inset-0 z-10 flex items-center justify-center bg-white/60 dark:bg-gray-900/60 backdrop-blur-[1px]">
+            <mat-spinner diameter="40"></mat-spinner>
+        </div>
+        }
+
         <div class="overflow-x-auto">
-            <table class="w-full text-left text-sm">
-                <thead>
-                    <tr class="border-b border-gray-100 dark:border-gray-800">
-                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400">Usuario</th>
-                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400">Email</th>
-                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400">Rol</th>
-                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400">Estado</th>
-                        <th class="px-5 py-3.5 font-semibold text-gray-500 dark:text-gray-400 text-right">Acciones
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-                    <!-- Fila de ejemplo (repetir con *ngFor) -->
-                    <tr class="transition-colors hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                        <td class="px-5 py-3.5">
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-indigo-100 dark:border-indigo-900/50">
-                                    <img src="https://ui-avatars.com/api/?name=Juan+Perez&background=4f46e5&color=fff&size=72"
-                                        class="h-full w-full object-cover" alt="avatar" />
-                                </div>
-                                <span class="font-medium text-gray-800 dark:text-white">Juan Pérez</span>
+
+            <!-- !bg-transparent quita el fondo por defecto de Material para que se vea tu Tailwind -->
+            <table mat-table [dataSource]="listaUsuarios()" class="w-full text-left text-sm !bg-transparent">
+
+                <!-- 1. Columna Usuario (Avatar + Nombre) -->
+                <ng-container matColumnDef="nombre_completo">
+                    <th mat-header-cell *matHeaderCellDef
+                        class="!px-5 !py-3.5 !font-semibold !text-gray-500 dark:!text-gray-400 !border-b !border-gray-100 dark:!border-gray-800">
+                        Usuario
+                    </th>
+                    <td mat-cell *matCellDef="let item"
+                        class="!px-5 !py-3.5 !border-b !border-gray-100 dark:!border-gray-800">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-indigo-100 dark:border-indigo-900/50">
+                                <img [src]="'https://ui-avatars.com/api/?name=' + item.nombre_completo + '&background=4f46e5&color=fff&size=72'"
+                                    class="h-full w-full object-cover" alt="avatar" />
                             </div>
-                        </td>
-                        <td class="px-5 py-3.5 text-gray-600 dark:text-gray-300">juan&#64;email.com</td>
-                        <td class="px-5 py-3.5">
-                            <span
-                                class="inline-flex items-center rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
-                                Admin
-                            </span>
-                        </td>
-                        <td class="px-5 py-3.5">
-                            <span
-                                class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
-                                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                                Activo
-                            </span>
-                        </td>
-                        <td class="px-5 py-3.5 text-right">
-                            <div class="flex items-center justify-end gap-1">
-                                <!-- Botón editar -->
-                                <button
-                                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400">
-                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                    </svg>
-                                </button>
-                                <!-- Botón eliminar -->
-                                <button
-                                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-red-50 hover:text-red-600 dark:text-gray-400 dark:hover:bg-red-900/20 dark:hover:text-red-400">
-                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                            <span class="font-medium text-gray-800 dark:text-white">{{ item.nombre_completo }}</span>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- 2. Columna Email -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef
+                        class="!px-5 !py-3.5 !font-semibold !text-gray-500 dark:!text-gray-400 !border-b !border-gray-100 dark:!border-gray-800">
+                        Email
+                    </th>
+                    <td mat-cell *matCellDef="let item"
+                        class="!px-5 !py-3.5 !text-gray-600 dark:!text-gray-300 !border-b !border-gray-100 dark:!border-gray-800">
+                        {{ item.email }}
+                    </td>
+                </ng-container>
+
+                <!-- 3. Columna Rol -->
+                <ng-container matColumnDef="rol">
+                    <th mat-header-cell *matHeaderCellDef
+                        class="!px-5 !py-3.5 !font-semibold !text-gray-500 dark:!text-gray-400 !border-b !border-gray-100 dark:!border-gray-800">
+                        Rol
+                    </th>
+                    <td mat-cell *matCellDef="let item"
+                        class="!px-5 !py-3.5 !border-b !border-gray-100 dark:!border-gray-800">
+                        <span
+                            class="inline-flex items-center rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400">
+                            {{ item.rol }}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <!-- 4. Columna Estado -->
+                <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef
+                        class="!px-5 !py-3.5 !font-semibold !text-gray-500 dark:!text-gray-400 !border-b !border-gray-100 dark:!border-gray-800">
+                        Estado
+                    </th>
+                    <td mat-cell *matCellDef="let item"
+                        class="!px-5 !py-3.5 !border-b !border-gray-100 dark:!border-gray-800">
+                        <span
+                            class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400">
+                            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                            Activo
+                        </span>
+                    </td>
+                </ng-container>
+
+                <!-- 5. Columna Acciones -->
+                <ng-container matColumnDef="acciones">
+                    <th mat-header-cell *matHeaderCellDef
+                        class="!px-5 !py-3.5 !font-semibold !text-gray-500 dark:!text-gray-400 !text-right !border-b !border-gray-100 dark:!border-gray-800">
+                        Acciones
+                    </th>
+                    <td mat-cell *matCellDef="let item"
+                        class="!px-5 !py-3.5 !text-right !border-b !border-gray-100 dark:!border-gray-800">
+                        <div class="flex items-center justify-end gap-1">
+                            <!-- Botón Editar -->
+                            <button (click)="abrirModalEditar(item)" type="button"
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-gray-100 hover:text-indigo-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-indigo-400">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                </svg>
+                            </button>
+                            <!-- Botón Eliminar -->
+                            <button type="button"
+                                class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-red-50 hover:text-red-600 dark:text-gray-400 dark:hover:bg-red-900/20 dark:hover:text-red-400">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Renderizado de Cabecera y Filas (Obligatorio en mat-table) -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    class="transition-colors hover:!bg-gray-50 dark:hover:!bg-gray-800/50"></tr>
+
+                <!-- Mensaje cuando no hay registros -->
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="px-5 py-8 text-center text-gray-500 dark:text-gray-400"
+                        [attr.colspan]="displayedColumns.length">
+                        @if (!usuariosResource.isLoading()) {
+                        No se encontraron usuarios registrados.
+                        }
+                    </td>
+                </tr>
+
             </table>
+
         </div>
 
         <!-- Paginación -->
-        <div
-            class="flex flex-col items-center justify-between gap-3 border-t border-gray-100 px-5 py-3.5 sm:flex-row dark:border-gray-800">
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-                Mostrando <span class="font-medium text-gray-800 dark:text-white">1</span> a
-                <span class="font-medium text-gray-800 dark:text-white">10</span> de
-                <span class="font-medium text-gray-800 dark:text-white">50</span> resultados
-            </p>
-            <div class="flex items-center gap-1">
-                <button
-                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-300 text-sm text-gray-500 transition-colors hover:bg-gray-50 disabled:opacity-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800">
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button
-                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-sm font-medium text-white">1</button>
-                <button
-                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-300 text-sm text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800">2</button>
-                <button
-                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-300 text-sm text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800">3</button>
-                <button
-                    class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-gray-300 text-sm text-gray-500 transition-colors hover:bg-gray-50 disabled:opacity-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800">
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-            </div>
+        <div class="border-t border-gray-100 px-3 py-1 dark:border-gray-800">
+            <mat-paginator [length]="totalRegistros()" [pageSize]="paginacion.parametros().limit"
+                [pageIndex]="paginacion.parametros().page - 1" [pageSizeOptions]="[5, 10, 25, 50]"
+                (page)="paginacion.cambiarPagina($event)" class="!bg-transparent dark:!text-gray-300">
+            </mat-paginator>
         </div>
+
     </div>
 
     <!-- ╔══════════════════════════════════════════════════════╗
@@ -312,4 +352,4 @@
 
 </div>
 
-<app-form-usuario [usuario]="usuarioSeleccionado()" />
+<app-form-usuario [usuario]="usuarioSeleccionado()" (created)="usuariosResource.reload()" />
